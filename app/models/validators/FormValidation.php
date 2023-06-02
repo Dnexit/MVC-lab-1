@@ -47,9 +47,6 @@ class FormValidation
                     case "isEmail":
                         if( !$this->isEmail( $postData[$fieldName] ) ) $this->errors[] = "Неверно введён email!";
                         break;
-                    case "check_if_then":
-                        if( CustomFormValidation::check_if_then( $postData[$fieldName] ) ) $this->errors[] = "В третьем вопросе должно быть минимум 10 слов!";
-                        break;
                     case "isPhone":
                         if( !$this->isPhone( $postData[$fieldName] ) ) $this->errors[] = "Неверно введён телефон!";
                         break;
@@ -57,7 +54,14 @@ class FormValidation
                         if( !$this->checkFio( $postData[$fieldName] ) ) $this->errors[] = "Введите фамилию имя отчество!";
                         break;
                     case "check_boolean_question":
-                        if( ResultsVerification::check_boolean_question( $postData[$fieldName] ) ) $this->errors[] = "В третьем вопросе должно быть минимум 10 слов!";
+                        if( ResultsVerification::check_boolean_question( $postData[$fieldName] ) ) $this->errors[] = "Ответ неверный в первом вопросе!";
+                        break;
+                    case "check_equality":
+                        if( ResultsVerification::check_equality( $postData[$fieldName] ) ) $this->errors[] = "Ответ неверный во втором вопросе!";
+                        break;
+                    case "check_if_then":
+                        if( CustomFormValidation::check_if_then( $postData[$fieldName] ) ) $this->errors[] = "В третьем вопросе должно быть минимум 10 букв!";
+                        if( ResultsVerification::check_if_then( $postData[$fieldName] ) ) $this->errors[] = "Ответ неверный в третьем вопросе!";
                         break;
                 }
             }

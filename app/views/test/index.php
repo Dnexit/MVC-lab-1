@@ -28,7 +28,7 @@
         </div>
         <div class="form__field">
             <label for="equality">бинарное отношение между элементами данного множества, свойства которого сходны со свойствами отношения равенства называется</label>
-            <select id="equality" required>
+            <select id="equality" name="equality" required>
                 <option value="and"> И </option>
                 <option value="condition"> Импликация </option>
                 <option value="equivalence"> Эквивалентность </option>
