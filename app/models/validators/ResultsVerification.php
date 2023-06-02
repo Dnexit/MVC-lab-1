@@ -4,9 +4,9 @@
 namespace app\models\validators;
 
 
-class CustomFormValidation extends FormValidation {
+class ResultsVerification extends CustomFormValidation {
 
-    public static function check_if_then($str){
+    public static function check_boolean_question($str){
         $strArr = explode (" ", $str);
 
         return count( $strArr ) < 10;

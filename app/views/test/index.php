@@ -1,8 +1,8 @@
 <main class="main">
-    <form class="form">
+    <form class="form" action="/test" method="post">
         <div class="form__field">
             <label for="fullname">Введите ФИО</label>
-            <input type="text" id="fullname" pattern="[А-Яа-яЁё]+\s[А-Яа-яЁё]+\s[А-Яа-яЁё]+" required placeholder="Фамилия Имя Отчество">
+            <input name="fio" type="text" id="fullname" pattern="[А-Яа-яЁё]+\s[А-Яа-яЁё]+\s[А-Яа-яЁё]+" required placeholder="Фамилия Имя Отчество">
         </div>
         <div class="form__field">
             <label for="year_student">Группа:</label>
@@ -49,4 +49,21 @@
             <input data-type="reset" type="reset" value="Очистить">
         </div>
     </form>
+    <div class="notification">
+        <?php
+        if( !empty($_POST) && isset($errors) ):
+            foreach ($errors as $error):
+                ?>
+                <div class="notification__item notification__item_red">
+                    <?= $error; ?>
+                </div>
+            <?php
+            endforeach;
+            if( count($errors) == 0 ):
+                ?>
+                <div class="notification__item notification__item_green">
+                    Данные успешно отправлены
+                </div>
+            <?php endif;endif; ?>
+    </div>
 </main>

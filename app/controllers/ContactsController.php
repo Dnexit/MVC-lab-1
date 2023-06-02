@@ -12,6 +12,10 @@ class ContactsController extends Controller
 
         ];
 
+        if( !empty( $_POST ) ){
+            $vars["errors"] = $this->model->errors;
+        }
+
         $this->view->render("Контакты", $vars);
     }
 
