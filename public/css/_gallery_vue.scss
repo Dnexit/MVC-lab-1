@@ -1,0 +1,78 @@
+@use 'colors';
+
+#app {
+    display: flex;
+    height: 100%;
+
+    .album {
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        justify-content: center;
+        gap: 10px;
+        width: 70%;
+        max-width: 1200px;
+
+        &-item {
+            flex: 1 1 20%;
+
+            img {
+                width: 70%;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.img_popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    cursor: pointer;
+
+    .content {
+        margin: auto;
+        width: 85%;
+        height: max-content;
+        max-width: 1200px;
+        display: flex;
+        cursor: default;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        
+        img {
+            width: 70%;
+        }
+
+        .text {
+            position: absolute;
+            right: 0;
+            width: 30%;
+            height: 100%;
+            padding: 10px;
+            background-color: colors.$lightest_purple;
+            overflow-y: auto;
+        }
+    }
+
+    button {
+        padding: 10px;
+        background: transparent;
+        border: none;
+        font-size: 100px;
+        color: colors.$lighter_purple;
+        cursor: pointer;
+        transition: 0.3s ease;
+    
+        &:hover {
+            background-color: colors.$transparent_lighter_purple;
+        }
+    }
+}

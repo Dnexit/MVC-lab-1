@@ -1,0 +1,46 @@
+@use "colors";
+
+.header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 6rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .time {
+        font-style: italic;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4.5rem;
+        padding: 0.5rem;
+        a {
+            color: colors.$black;
+            font-size: 18px;
+            &:hover {
+                color: colors.$white
+            }
+        }
+    }
+
+    .alternate_links {
+        margin-left: auto;
+        display: flex;
+        align-self: flex-end;
+        justify-self: flex-end;
+        a {
+            color: colors.$black;
+        }
+        gap: 2rem
+    }
+}

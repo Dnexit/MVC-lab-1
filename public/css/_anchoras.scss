@@ -1,0 +1,38 @@
+@use 'colors';
+
+.anchoras {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+        margin-top: 2rem;
+        font-weight: bold;
+        text-decoration: overline;
+        font-size: 1.2rem;
+        height: 2rem;
+    }
+
+    ul {
+        display: none;
+        max-width: 20vh;
+        text-align: center;
+    }
+
+    h2:hover~ul, ul:hover {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3rem;
+        li {
+            a {
+                color: colors.$black;
+                &:hover {
+                    color: colors.$white;
+                }
+            }
+        } 
+    }
+}

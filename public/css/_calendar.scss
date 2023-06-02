@@ -1,0 +1,42 @@
+@use 'colors';
+
+.picker {
+    margin-top: 1em;
+    padding: 1em;
+
+    &__head {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1em;
+
+        option:checked {
+            color: colors.$orange;
+        }
+    }
+
+    &__days {
+        margin-top: 1em;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1em;
+
+        &__item {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+        
+            &:hover {
+                color: colors.$orange;
+            }
+
+            &[data-selected="true"] {
+                cursor: default;
+                color: colors.$orange;
+            }
+
+            &[data-hidden="true"] {
+                display: none;
+            }
+        }
+    }
+}

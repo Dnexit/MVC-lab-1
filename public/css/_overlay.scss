@@ -1,0 +1,97 @@
+@use 'colors';
+
+.overlay {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    gap: clamp(10px, 5vw, 60px);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: colors.$transparent_lighter_purple;
+    cursor: pointer;
+
+    &__confirm {
+        width: 500px;
+        height: 300px;
+        border: solid colors.$lavanda 1rem;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+        background-color: colors.$light_purple;
+        cursor: default;
+
+        &__title {
+            text-align: center;
+            margin: 2rem;
+            display: block;
+            font-size: 2rem;
+        }
+
+        &__body {
+            height: 100px;
+            width: 300px;
+            justify-content: center;
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 1rem;
+            
+            input {
+                &[type=submit], &[type=reset] {
+                    width: 100px;
+                    height: 50px;
+                    border: solid colors.$lavanda;
+                    text-transform: uppercase;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    background-color: colors.$light_purple;
+                }
+                
+            }
+        }
+    }
+
+    &__photo {
+        width: 33%;
+        max-height: 100%;
+        object-fit: cover;
+        cursor: initial;
+        image-rendering: pixelated;
+    }
+
+    &__arrow {
+        width: 5rem;
+        aspect-ratio: 1;
+        user-select: none;
+        background-image: url("./../img/arrows.png");
+        background-size: 300% 200%;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        image-rendering: pixelated;
+    
+        &:hover {
+            background-position-x: 50%;
+        }
+    
+        &:active {
+            background-position-x: 50%;
+        }
+        &--left {
+            transform: rotate(-90deg);
+        }
+    
+        &--right {
+            transform: rotate(90deg);
+        }
+    }
+
+}
+

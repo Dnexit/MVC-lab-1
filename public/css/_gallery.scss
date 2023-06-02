@@ -1,0 +1,34 @@
+.wrapper_gallery {
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.6rem 1rem;
+    
+        figure {
+            display: flex;
+            flex-direction: column;
+            gap: .7rem;
+            justify-content: flex-start;
+            text-align: center;
+        
+            img {
+                max-width: 20vw;
+                width: 70%;
+                cursor: pointer;
+            }
+        
+            figcaption {
+                font-size: 20px;
+                
+                font-family: var(--font-decorative);
+            }
+        }
+    
+    }
+}
