@@ -12,11 +12,9 @@
 <?php
 $i = 0;
 foreach ($photoNames as $photoSrc => $name):
-    $i++;
-    ?>
+    $i++; ?>
     <figure>
         <img class='foto_img' data-img-id=<?= $i - 1 ?> title='<?= $name ?>' src='<?= $photoSrc ?>'>
         <figcaption><?= $name ?></figcaption>
     </figure>
 <?php endforeach; ?>
-<script src="http://<?= $_SERVER["SERVER_NAME"]; ?>/public/js/gallery.js" defer></script>

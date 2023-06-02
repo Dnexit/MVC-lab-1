@@ -12,8 +12,7 @@ class GalleryController extends Controller
         $photoNames = $this->model->getPhotoNames();
 
         $vars = [
-            "photoNames" => $photoNames,
-            "menuIndex" => 5
+            "photoNames" => $photoNames
         ];
 
         $this->view->render("Фотографии", $vars);

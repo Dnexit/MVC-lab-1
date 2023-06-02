@@ -86,7 +86,7 @@ function imageClickListener(e) {
     }
 }
 
-
+/*
 for (let i = 1; i <= 15; i++){
     let filename = `(${i}).jpg`;
     addPicture(filename, titles[filename], captions[filename]);
@@ -105,3 +105,4 @@ function addPicture(filename, title, caption) {
     figure.append(img, figcaption);
     figcaption.append(figcaption_text);
 }
+*/
