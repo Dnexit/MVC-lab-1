@@ -23,10 +23,12 @@
             <a href="/about">обо мне</a>
             <a href="/interests">мои интересы</a>
             <a href="/learning">учеба</a>
-            <a href="/gallery">фотографии</a>
+            <a href="/gallery">галерея</a>
             <a href="/contacts">контакты</a>
+            <a href="/blog">мой блог</a>
+            <a href="/guest-book">гостевая книга</a>
             <a href="/test">тест</a>
-            <a href="/history">история просмотра</a>
+            <a href="/history">история</a>
         </nav>
     </header>
     <main class="main">

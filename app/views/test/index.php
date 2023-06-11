@@ -1,8 +1,16 @@
+<style>
+    .green-text{
+        color: #60b11f;
+    }
+    .red-text{
+        color: #b11818;
+    }
+</style>
 <main class="main">
     <form class="form" action="/test" method="post">
         <div class="form__field">
             <label for="fullname">Введите ФИО</label>
-            <input name="fio" type="text" id="fullname" pattern="[А-Яа-яЁё]+\s[А-Яа-яЁё]+\s[А-Яа-яЁё]+" required placeholder="Фамилия Имя Отчество">
+            <input name="fio" type="text" id="fullname" pattern="[А-Яа-яЁё]+\s[А-Яа-яЁё]+\s[А-Яа-яЁё]+" required placeholder="Фамилия Имя Отчество" value="<?php if( !empty($_POST["fio"]) ) echo $_POST["fio"]; ?>">
         </div>
         <div class="form__field">
             <label for="year_student">Группа:</label>
@@ -26,6 +34,9 @@
                 <label for="logic">Логическая логика</label>
             </fieldset>
         </div>
+        <?php if( !empty($testData) ): ?>
+            <div class="<?= $testData->q_1 ? "green-text" : "red-text" ?>"><?= $testData->q_1 ? "Верно" : "Неверно" ?></div>
+        <?php endif; ?>
         <div class="form__field">
             <label for="equality">бинарное отношение между элементами данного множества, свойства которого сходны со свойствами отношения равенства называется</label>
             <select id="equality" name="equality" required>
@@ -36,10 +47,16 @@
                 <option value="exclusive_or"> Исключающее или </option>
             </select>
         </div>
+        <?php if( !empty($testData) ): ?>
+            <div class=" <?= $testData->q_2 ? "green-text" : "red-text" ?> "><?= $testData->q_2 ? "Верно" : "Неверно" ?></div>
+        <?php endif; ?>
         <div class="form__field">
             <label for="if_then">Бинарная логическая связка, по своему применению приближенная к союзам «если…, то…» - это ..:</label>
             <textarea name="if_then" id="if_then" rows="5" cols="33" pattern="([А-Яа-яЁё]+\s){34}[А-Яа-яЁё].*" required></textarea>
         </div>
+        <?php if( !empty($testData) ): ?>
+            <div class=" <?= $testData->q_3 ? "green-text" : "red-text" ?> "><?= $testData->q_3 ? "Верно" : "Неверно" ?></div>
+        <?php endif; ?>
         <div class="form__field">
             <label for="email">Почта:</label>
             <input type="email" name="email" id="email" required placeholder="email@email.com">

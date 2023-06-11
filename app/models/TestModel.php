@@ -3,17 +3,24 @@
 
 namespace app\models;
 
-use app\core\Model;
+use app\core\BaseActiveRecord;
 
-class TestModel extends Model
+class TestModel extends BaseActiveRecord
 {
+    protected static $tablename = 'questions';
+
+    public $id;
+    public $created_at;
+    public $fio;
+    public $q_1;
+    public $q_2;
+    public $q_3;
+
     public function __construct()
     {
         parent::__construct();
         $this->validator->SetRule("fio", "checkFio");
-        $this->validator->SetRule("boolean_question", "check_boolean_question");
-        $this->validator->SetRule("equality", "check_equality");
-        $this->validator->SetRule("if_then", "check_if_then");
+        $this->validator->SetRule("q_1", "check_q_1");
     }
 
     public function Validate($postData){

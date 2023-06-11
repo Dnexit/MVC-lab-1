@@ -37,4 +37,32 @@ return [
         "controller" => "history",
         "action" => "index"
     ],
+    "visit-statistic" => [
+        "controller" => "visitStatistic",
+        "action" => "index"
+    ],
+    "guest-book" => [
+        "controller" => "guestBook",
+        "action" => "index"
+    ],
+    "guest-book/load" => [
+        "controller" => "guestBook",
+        "action" => "load"
+    ],
+    "blog" => [
+        "controller" => "blog",
+        "action" => "index",
+    ],
+    "blog/edit" => [
+        "controller" => "blog",
+        "action" => "edit",
+    ],
+    "blog/load" => [
+        "controller" => "blog",
+        "action" => "load"
+    ],
+    "phpinf"  => [
+        "controller" => "blog",
+        "action" => "php"
+    ],
 ];
