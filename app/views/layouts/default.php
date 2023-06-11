@@ -1,3 +1,8 @@
+<?php
+use app\models\AdminPanelModel;
+
+$adminPanel = new AdminPanelModel();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -11,6 +16,7 @@
     <script src="http://<?= $_SERVER["SERVER_NAME"]; ?>/public/js/history_accounting.js" defer></script>
 </head>
 <body id="body--main" background="http://<?= $_SERVER["SERVER_NAME"]; ?>/public/img/9.jpg">
+
 
 <div class="container">
     <header class="header">
@@ -31,6 +37,44 @@
             <a href="/history">история</a>
         </nav>
     </header>
+    <?php if( !\app\controllers\UserController::isUserLogin() ): ?>
+        <div class="user">
+            <div class="user__login">
+                <a href="/user/login">
+                    Войти как пользователь
+                </a>
+            </div>
+            <div class="user__register">
+                <a href="/user/register">
+                    Регистрация пользователя
+                </a>
+            </div>
+        </div>
+    <?php elseif(isset($_SESSION["user_login"])): ?>
+        <div class="user">
+            <a href="/user/logout">
+                Привет, <?= $_SESSION["user_login"] ?>!
+            </a>
+        </div>
+    <?php endif; ?>
+    <div class="admin-controller">
+        <div class="admin-controller__panel">
+            <ul>
+                <?php if( isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ): ?>
+                    <?php foreach($adminPanel->adminItems as $link => $name): ?>
+                        <li class="admin-controller__panel__item">
+                            <a href="<?= $link ?>"><?= $name ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li class="admin-controller__panel__item">
+                        <a href="/admin/login">Войти как администратор</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+
     <main class="main">
         <section class="section section--main">
             <?= $content ?>

@@ -66,6 +66,46 @@
             <input data-type="reset" type="reset" value="Очистить">
         </div>
     </form>
+
+
+    <?php if( !\app\controllers\UserController::isUserLogin() ): ?>
+        Войдите в систему чтобы увидеть результаты
+    <?php elseif(isset($_SESSION["user_login"])): ?>
+        <?php if( !empty( $testResults ) ): ?>
+            <table>
+                <tr>
+                    <th>ФИО</th>
+                    <th>Дата прохождения</th>
+                    <th>1 вопрос</th>
+                    <th>2 вопрос</th>
+                    <th>3 вопрос</th>
+                </tr>
+                <?php foreach ($testResults as $testResult): ?>
+                    <tr>
+                        <td>
+                            <?= $testResult->fio ?>
+                        </td>
+                        <td>
+                            <?= $testResult->created_at ?>
+                        </td>
+                        <td>
+                            <?= $testResult->q_1 == 1 ? "Верно" : "Неверно" ?>
+                        </td>
+                        <td>
+                            <?= $testResult->q_2 == 1 ? "Верно" : "Неверно" ?>
+                        </td>
+                        <td>
+                            <?= $testResult->q_3 == 1 ? "Верно" : "Неверно" ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
+    <?php endif; ?>
+
+
+
+
     <div class="notification">
         <?php
         if( !empty($_POST) && isset($errors) ):

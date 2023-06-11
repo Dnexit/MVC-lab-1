@@ -29,7 +29,7 @@ class GuestBookController extends Controller
     }
 
     public function loadAction(){
-        //AdminPanelController::authenticate();
+        AdminPanelController::authenticate();
 
         $message = "";
         $errors = [];

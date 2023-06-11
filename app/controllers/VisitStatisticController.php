@@ -10,7 +10,7 @@ use app\models\VisitStatisticModel;
 class VisitStatisticController extends Controller
 {
     public function indexAction(){
-        //AdminPanelController::authenticate();
+        AdminPanelController::authenticate();
 
         if( VisitStatisticModel::find($_SERVER['HTTP_USER_AGENT'], "browser_name") == null ){
             $this->save();

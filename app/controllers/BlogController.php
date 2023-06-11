@@ -21,7 +21,7 @@ class BlogController extends Controller
     }
 
     public function editAction(){
-        //AdminPanelController::authenticate();
+        AdminPanelController::authenticate();
 
         $blogRecords = BlogModel::paginate(self::PAGES);
         $blogNumPage = ceil(BlogModel::getNumRow() / self::PAGES);
@@ -49,7 +49,7 @@ class BlogController extends Controller
     }
 
     public function loadAction(){
-        //AdminPanelController::authenticate();
+        AdminPanelController::authenticate();
 
         if ( !empty($_FILES) ) {
             $filename = "public/" . $_FILES["file"]["name"];
