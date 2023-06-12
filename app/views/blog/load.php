@@ -4,6 +4,20 @@
     </section>
     <div class="content-wrapper grey-block">
         <form class="contact-form" action="" method="post" enctype="multipart/form-data">
+            <div class="modal-wrapper">
+                <div class="modal">
+                    <p></p>
+                    <div class="modal-btns">
+                        <button id="yes_modal" class="main-btn" type="button">
+                            Да
+                        </button>
+                        <button id="no_modal" class="main-btn" type="button">
+                            Нет
+                        </button>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </div>
 
             <div id="tooltip"></div>
 
@@ -16,22 +30,22 @@
             </div>
 
             <button
-                id="sendBtn"
-                class="main-btn btn-show-modal"
-                data-modal-text="Отправить данные?"
-                data-btn-callback="checkTestForm"
-                type="submit"
-                name="button"
+                    id="sendBtn"
+                    class="main-btn btn-show-modal"
+                    data-modal-text="Отправить данные?"
+                    data-btn-callback="checkTestForm"
+                    type="submit"
+                    name="button"
             >
                 Отправить
             </button>
             <button
-                id="resetBtn"
-                class="main-btn btn-show-modal"
-                data-modal-text="Стереть данные?"
-                data-btn-callback="resetForm"
-                type="reset"
-                name="button"
+                    id="resetBtn"
+                    class="main-btn btn-show-modal"
+                    data-modal-text="Стереть данные?"
+                    data-btn-callback="resetForm"
+                    type="reset"
+                    name="button"
             >
                 Очистить форму
             </button>
@@ -51,7 +65,7 @@
                             <?= $message->title ?>
                         </td>
                         <td>
-                            <img src="/public/img/blog/<?= $message->img ?>" alt="">
+                            <img src="/public/img/<?= $message->img ?>" alt="">
                         </td>
                         <td>
                             <?= $message->text ?>

@@ -1,7 +1,4 @@
 <main>
-    <section class="page-name">
-        <span><?= $title ?></span>
-    </section>
     <div class="content-wrapper grey-block">
 
         <?php if (!empty($blogRecords)): ?>
@@ -11,6 +8,7 @@
                     <th>Изображение</th>
                     <th>Текст сообщения</th>
                     <th>Дата добавления</th>
+                    <th></th>
                 </tr>
                 <?php foreach ($blogRecords as $blogRecord): ?>
                     <tr>
@@ -25,6 +23,11 @@
                         </td>
                         <td>
                             <?= $blogRecord->created_at ?>
+                        </td>
+                        <td>
+                            <a href="/blog?id=<?= $blogRecord->id ?>">
+                                <span class="material-icons">Комментарии</span>
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

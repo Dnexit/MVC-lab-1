@@ -2,74 +2,62 @@
     <section class="page-name">
         <span><?= $title ?></span>
     </section>
-    <div class="content-wrapper grey-block">
-        <form class="contact-form" action="" method="post" enctype="multipart/form-data">
 
-            <div id="tooltip"></div>
+    <div class="modal edit-blog-modal">
+        <div class="modal__title">
+            Редактирование блога
+        </div>
+        <div class="modal__desc">
+            <form action="/blog/editRecord" method="post" class="main-form">
+                <label for="fio">
+                    ID блога
+                    <input class="blog-id" type="text" name="blog_id">
+                </label>
 
-            <div class="tooltip">
-                <p style="margin-top: 0">Тема сообщения</p>
-                <input type="text"
-                       id="title"
-                       name="title"
-                       value="<?php if( !empty($_POST["title"]) ) echo $_POST["title"]; ?>"
-                />
-                <p class="error"></p>
-            </div>
+                <label for="fio">
+                    Тема записи
+                    <input type="text" name="title">
+                </label>
 
-            <div class="tooltip">
-                <p>Изображение</p>
-                <input type="file" id="img" name="img"/>
-                <p class="error"></p>
-            </div>
+                <label for="text">
+                    Текст сообщения
+                    <input type="text" name="text">
+                </label>
 
-            <div class="tooltip">
-                <p>Текст сообщения</p>
-                <textarea type="text" id="text" name="text"><?php if( !empty($_POST["text"]) ) echo $_POST["text"]; ?></textarea>
-                <p class="error"></p>
-            </div>
-
-            <button
-                id="sendBtn"
-                class="main-btn btn-show-modal"
-                data-modal-text="Отправить данные?"
-                data-btn-callback="checkTestForm"
-                type="submit"
-            >
-                Отправить
-            </button>
-            <button
-                id="resetBtn"
-                class="main-btn btn-show-modal"
-                data-modal-text="Стереть данные?"
-                data-btn-callback="resetForm"
-                type="reset"
-            >
-                Очистить форму
-            </button>
-        </form>
+                <div class="modal__btn">
+                    <button type="submit" class="main-btn">Изменить</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
         <?php if( !empty($blogRecords) ): ?>
-            <table>
+            <table class="blog-edit-table">
                 <tr>
                     <th>Тема сообщения</th>
                     <th>Изображение</th>
                     <th>Текст сообщения</th>
                     <th>Дата добавления</th>
+                    <th></th>
                 </tr>
                 <?php foreach ($blogRecords as $blogRecord): ?>
-                    <tr>
-                        <td>
+                    <tr data-id="<?= $blogRecord->id ?>">
+                        <td class="blog-title">
                             <?= $blogRecord->title ?>
                         </td>
-                        <td>
+                        <td class="blog-img">
                             <img src="/public/img/blog/<?= $blogRecord->img ?>" alt="">
                         </td>
-                        <td>
+                        <td class="blog-text">
                             <?= $blogRecord->text ?>
                         </td>
-                        <td>
+                        <td class="blog-created-at">
                             <?= $blogRecord->created_at ?>
+                        </td>
+                        <td>
+                            <a class="edit-blog" href="javascript:void(0)">
+                                <span class="material-icons">edit</span>
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

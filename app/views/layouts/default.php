@@ -10,6 +10,8 @@ $adminPanel = new AdminPanelModel();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
+    <script src="/public/Libs/jquery.js"></script>
+    <script src="/public/js/index.js"></script>
     <link rel="stylesheet" href="http://<?= $_SERVER["SERVER_NAME"]; ?>/public/css/reset.css">
     <link rel="stylesheet" href="http://<?= $_SERVER["SERVER_NAME"]; ?>/public/css/style.css">
     <script src="http://<?= $_SERVER["SERVER_NAME"]; ?>/public/js/time.js" defer></script>

@@ -13,9 +13,14 @@ class View {
         $this->path = $route['controller'] . "/" . $route['action'];
     }
 
-    public function render($title, $vars = []){
+    public function render($title, $vars = [], $pageName = ""){
         extract($vars);
-        $viewPage = "app/views/$this->path.php";
+        if( $pageName == "" ){
+            $viewPage = "app/views/$this->path.php";
+        } else {
+            $viewPage = "app/views/$pageName.php";
+        }
+
         $menu = [
             "/" => "Главная",
             "/test" => "Тест по дисциплине",

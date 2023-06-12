@@ -66,9 +66,19 @@ return [
         "action" => "index",
     ],
 
+    "blog/addComment" => [
+        "controller" => "blog",
+        "action" => "addComment",
+    ],
+
     "blog/edit" => [
         "controller" => "blog",
         "action" => "edit",
+    ],
+
+    "blog/editRecord" => [
+        "controller" => "blog",
+        "action" => "editRecord",
     ],
 
     "blog/load" => [
@@ -104,6 +114,11 @@ return [
     "user/register" => [
         "controller" => "user",
         "action" => "register"
+    ],
+
+    "user/checkLogin" => [
+        "controller" => "user",
+        "action" => "checkLogin"
     ],
 
     "phpinf"  => [

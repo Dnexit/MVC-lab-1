@@ -466,7 +466,6 @@ select:hover {
   border: 2px solid var(--primary-color);
   cursor: pointer;
 }
-
 .error {
   display: none;
   margin-top: 0 !important;
@@ -485,6 +484,7 @@ select:hover {
   padding: 10px 20px;
   background-color: #2b2b2b;
   color: #fff;
+  border-radius: 10px;
   font-size: 16px;
   animation-name: errorOpacity;
   animation-duration: .5s;

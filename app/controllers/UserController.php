@@ -59,6 +59,16 @@ class UserController extends Controller
         View::redirect("/");
     }
 
+    public function checkLoginAction(){
+        if( isset( $_GET["login"] ) ){
+            header ('Content-Type: text/javascript');
+            $loginBusy = UserModel::find($_GET["login"], "login");
+            if( $loginBusy == null ){
+                echo "checkLogin(false)";
+            } else echo "checkLogin(true)";
+            die();
+        }
+    }
 
     public static function isUserLogin(){
         if( !isset($_SESSION["user_login"]) || $_SESSION["user_login"] == "" ){
