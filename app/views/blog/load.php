@@ -1,24 +1,6 @@
 <main>
-    <section class="page-name">
-        <span><?= $title ?></span>
-    </section>
     <div class="content-wrapper grey-block">
         <form class="contact-form" action="" method="post" enctype="multipart/form-data">
-            <div class="modal-wrapper">
-                <div class="modal">
-                    <p></p>
-                    <div class="modal-btns">
-                        <button id="yes_modal" class="main-btn" type="button">
-                            Да
-                        </button>
-                        <button id="no_modal" class="main-btn" type="button">
-                            Нет
-                        </button>
-                    </div>
-                </div>
-                <div class="overlay"></div>
-            </div>
-
             <div id="tooltip"></div>
 
             <div class="tooltip">
@@ -65,7 +47,7 @@
                             <?= $message->title ?>
                         </td>
                         <td>
-                            <img src="/public/img/<?= $message->img ?>" alt="">
+                            <img src="/public/img/blog/<?= $message->img ?>" alt="">
                         </td>
                         <td>
                             <?= $message->text ?>
